@@ -15,7 +15,7 @@ then
     echo NO_PROXY=169.254.169.254 >> /etc/awslogs/proxy.conf
 fi
 
-if [ $DOCKER_NETWORK_MODE = "host"]
+if [ $DOCKER_NETWORK_MODE = "host" ]
 then
     sudo sed -i -e "s|^\(OPTIONS=\".*\)\"$|\1 --bridge=none --ip-forward=false --ip-masq=false --iptables=false\"|" \
     /etc/sysconfig/docker

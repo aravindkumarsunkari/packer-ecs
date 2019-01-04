@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "### performing final clean-up tasks ###"
+echo "### Performing final clean-up tasks ###"
 sudo service docker stop
 sudo chkconfig docker off
 sudo rm -f /var/log/docker /var/log/ecs/*
