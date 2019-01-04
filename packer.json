@@ -22,13 +22,8 @@
             "DockerVersion": "18.09.0",
             "ECSAgentVersion": "1.22.0"
         }
-    }],
-    "post-provisioners": [{
-        "type": "manifest",
-        "output": "manifest.json",
-        "strip_path": true
-        }]
-    /* ,
+    }]
+    ,
     "provisioners": [{
         "type": "shell",
         "script": "scripts/configure-timezone.sh",
@@ -46,7 +41,12 @@
         "script": "scripts/cleanup.sh"
     }, {
         "type": "file",
-        "script": "files/firstrun.sh",
+        "source": "files/firstrun.sh",
         "destination": "/home/ec2-user/firstrun.sh"
-    }] */
+    }],
+    "post-processors": [{
+        "type": "manifest",
+        "output": "manifest.json",
+        "strip_path": true
+        }]
 }
